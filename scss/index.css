@@ -1,0 +1,197 @@
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+  font-size: 16px;
+}
+
+.container {
+  margin: 0 15vmin;
+}
+
+nav {
+  background-color: #3d3d3d;
+  color: #fff;
+  font-size: calc(10px + 1vmin);
+  padding: 1.5em;
+}
+
+@media screen and (max-width: 768px) {
+  form {
+    -ms-grid-columns: 1fr !important;
+        grid-template-columns: 1fr !important;
+  }
+  .bloglist h1 {
+    text-align: center;
+  }
+  .blog-item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .blog-item .blog-image-wrapper {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-top: 2em;
+  }
+  .blog-item .no-blog-image {
+    width: 100% !important;
+  }
+  .blog-item .blog-text {
+    text-align: center;
+    width: 100% !important;
+  }
+  .blog-item input[type=submit] {
+    margin: 20px auto 20px auto !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    margin: 0 5vmin;
+  }
+  .info-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 2.5em 0 10em 0;
+  }
+  .info-wrapper a {
+    margin: 10px auto 0 auto;
+  }
+  .no-profile-image {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1em;
+  }
+  .no-profile-image, .no-blog-image {
+    background-color: #316c80;
+  }
+  .bio {
+    text-align: center;
+    margin-left: 0 !important;
+  }
+}
+
+.form-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 50px 0;
+}
+
+.form-switchers {
+  font-size: 0;
+}
+
+.switch {
+  cursor: pointer;
+  width: 100px;
+  text-align: center;
+  font-size: 16px;
+  display: inline-block;
+  padding: 10px;
+  color: #fff;
+}
+
+.switch:first-of-type {
+  background-color: #316c80;
+}
+
+.switch:last-of-type {
+  background-color: lightskyblue;
+}
+
+.active-switch {
+  -webkit-box-shadow: 0px 0px 8px 0px #aaaaaa !important;
+          box-shadow: 0px 0px 8px 0px #aaaaaa !important;
+}
+
+.registration-wrapper h1, .login-wrapper h1 {
+  margin: 1em 0;
+}
+
+.login-wrapper {
+  display: none;
+}
+
+.registration-form, .login-form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.registration-form input, .login-form input {
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border: 1px solid #858585;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.registration-form .input-wrapper, .login-form .input-wrapper {
+  position: relative;
+}
+
+.registration-form .input-wrapper .error-message, .registration-form .input-wrapper .required-message, .login-form .input-wrapper .error-message, .login-form .input-wrapper .required-message {
+  color: red;
+  display: block;
+  position: absolute;
+}
+
+.registration-form .input-wrapper .required-message, .login-form .input-wrapper .required-message {
+  top: 12px;
+  right: 10px;
+}
+
+.registration-form .input-wrapper .required-message-none, .login-form .input-wrapper .required-message-none {
+  display: none !important;
+}
+
+.registration-form .input-wrapper .error-message, .login-form .input-wrapper .error-message {
+  right: 0;
+  font-size: 14px;
+  bottom: -60%;
+}
+
+.registration-form label, .login-form label {
+  cursor: text;
+  -webkit-transition: top 0.2s ease-in-out, left 0.2s ease-in-out, color 0.3s ease-in-out;
+  transition: top 0.2s ease-in-out, left 0.2s ease-in-out, color 0.3s ease-in-out;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #858585;
+}
+
+.registration-form input[type=submit], .login-form input[type=submit] {
+  cursor: pointer;
+  width: 70px;
+  font-size: 1em;
+  border: none;
+  color: #fff;
+  background-color: #316c80;
+}
+/*# sourceMappingURL=index.css.map */
