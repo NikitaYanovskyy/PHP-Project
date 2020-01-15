@@ -13,15 +13,37 @@ if(isset($_POST['registerSubmit'])){
             echo '';
         }
     }
+    function FamilyNameError(){
+        if(UserCheck() == 'empty'){
+            echo '<small class="error-message">Family name is required</small>';
+        }else if(UserCheck() == 'more then allowed'){
+            echo '<small class="error-message">Family name has to be below 20 symbols</small>';
+        } else{
+            echo '';
+        }
+    }
+    function UsernameError(){
+        if(UserCheck() == 'empty'){
+            echo '<small class="error-message">Username is required</small>';
+        }else if(UserCheck() == 'more then allowed'){
+            echo '<small class="error-message">Username has to be below 20 symbols</small>';
+        } else{
+            echo '';
+        }
+    }
 
 
     //Register fields
-  
     if(NameCheck() == 'pass'){
         $name = $_POST['name'];
     }
-    $familyName = $_POST['familyName'];
-    $registerUsername = $_POST['registerUsername'];
+    if(FamilyNameCheck() == 'pass'){
+        $familyName = $_POST['familyName'];
+    }
+    if(UserCheck() == 'pass'){
+        $registerUsername = $_POST['registerUsername'];
+    }
+
     $country = $_POST['country'];
     $city = $_POST['city'];
     $address = $_POST['address'];
@@ -29,8 +51,8 @@ if(isset($_POST['registerSubmit'])){
     $registerPassword = $_POST['registerPassword'];
     $registerSubmit = $_POST['registerSubmit'];
 
-    if(isset($name)){
-        $sql = "INSERT INTO usertable(name)  VALUES ('$name')";
+    if(isset($name) && isset($familyName) && isset($registerUsername)){
+        $sql = "INSERT INTO usertable(name, familyName, username)  VALUES ('$name', '$familyName', '$registerUsername')";
         mysqli_query($db,$sql);
     }
 }
@@ -87,13 +109,19 @@ if(isset($_POST['loginSubmit'])){
 
                 <div class="input-wrapper">
                     <label for="familyName">Family name</label>
-                    <input type="text" name="familyName" id="familyName" value="<?php echo (isset($_POST['familyName'])) ? $familyName : ""?>">
+                    <input type="text" name="familyName" id="familyName" value="<?php echo (isset($_POST['familyName']) && isset($familyName)) ? $familyName : ""?>">
+                    <?php if(isset($_POST['registerSubmit'])) {
+                        FamilyNameError();
+                    } ?>
                     <small class="required-message">*required</small>
                 </div>
 
                 <div class="input-wrapper">
                     <label for="registerUsername">Username</label>
-                    <input type="text" name="registerUsername" id="registerUserName" value="<?php echo (isset($_POST['registerUsername'])) ? $registerUsername : ""?>">
+                    <input type="text" name="registerUsername" id="registerUserName" value="<?php echo (isset($_POST['registerUsername']) && isset($registerUsername)) ? $registerUsername : ""?>">
+                    <?php if(isset($_POST['registerSubmit'])) {
+                        UsernameError();
+                    } ?>
                     <small class="required-message">*required</small>
                 </div>
 
