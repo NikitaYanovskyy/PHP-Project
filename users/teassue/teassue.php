@@ -15,7 +15,7 @@ session_start();
     $result = mysqli_query($db,$getUserInfo_);
     $userInfo = mysqli_fetch_assoc($result); 
     //Selecting & Pasting data
-    $userDBConnect = mysqli_connect("localhost","root","Tchami&Malaa", $url_Username."_blog");
+    $userDBConnect = mysqli_connect("localhost","root","Tchami&Malaa", "blogs");
     $selectResult = mysqli_query($userDBConnect,$getUserBlog_);
     $blogArray = mysqli_fetch_all($selectResult,MYSQLI_ASSOC);
 ?>

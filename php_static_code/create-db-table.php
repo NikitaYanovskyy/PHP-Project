@@ -2,7 +2,7 @@
     $username = strtolower($_SESSION['username']);
 
     //Making and inserting database
-    $createDB_ =  "CREATE DATABASE IF NOT EXISTS ".$username."_blog";
+    $createDB_ =  "CREATE DATABASE IF NOT EXISTS blogs";
     $generalConnect = mysqli_connect("localhost","root","Tchami&Malaa");
     mysqli_query($generalConnect,$createDB_);
 
@@ -17,6 +17,6 @@
         edit_date VARCHAR(30) NOT NULL
     )";
 
-    $userDBConnect = mysqli_connect("localhost","root","Tchami&Malaa", $username."_blog");
+    $userDBConnect = mysqli_connect("localhost","root","Tchami&Malaa", "blogs");
     mysqli_query($userDBConnect, $insertTable_);
 ?>

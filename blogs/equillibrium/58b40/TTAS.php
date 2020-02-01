@@ -15,7 +15,7 @@ session_start();
     include "../../../config.php";
 
     //Getting one specific blog row
-    $userDBConnect = mysqli_connect("localhost","root","Tchami&Malaa", $blogOwner."_blog");
+    $userDBConnect = mysqli_connect("localhost","root","Tchami&Malaa", "blogs");
     $SpecificBlog_ = "SELECT * FROM ".$blogOwner." WHERE post_name = '$post_name'";
     $result = mysqli_query($userDBConnect, $SpecificBlog_);
     if($result){

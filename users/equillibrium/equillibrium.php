@@ -15,7 +15,7 @@ session_start();
     $result = mysqli_query($db,$getUserInfo_);
     $userInfo = mysqli_fetch_assoc($result); 
     //Selecting & Pasting data
-    $userDBConnect = mysqli_connect("localhost","root","Tchami&Malaa", $url_Username."_blog");
+    $userDBConnect = mysqli_connect("localhost","root","Tchami&Malaa", "blogs");
     $selectResult = mysqli_query($userDBConnect,$getUserBlog_);
     $blogArray = mysqli_fetch_all($selectResult,MYSQLI_ASSOC);
 ?>
@@ -46,7 +46,7 @@ session_start();
             if($userInfo['profileImage'] == ''){
                 echo('../../images/default-image.jpg');
             }else{
-                echo('../../images/'.$userInfo['profileImage']);
+                echo("../../users/".$userInfo['username']."/profileImage\/".$userInfo['profileImage']);
             }
         ?>" class="profile-image"></img>
         <div class="bio">
@@ -70,7 +70,7 @@ session_start();
 
 
                         <div class="buttons-wrapper">
-                            <input type="submit" name="view" value="View" class="post-view">
+                            <a class="post-view" href="../../blogs/<?php echo $userInfo['username']?>/<?php echo $row['post_name']?>/<?php echo $row['title']?>.php">View</a>
                         </div>
                     </div>
                     <div class="blog-posted">
@@ -89,7 +89,7 @@ session_start();
                         if($row['image'] == ''){
                             echo "<img src='../../images/default-image.jpg' class='no-blog-image'>";
                         }else{
-                            echo "<img src='../../blogs/".$url_Username."/images\/".$row['image']."' class='no-blog-image'>";
+                            echo "<img src='../../blogs/".$url_Username."/".$row['post_name']."/images\/".$row['image']."' class='no-blog-image'>";
                         }
                     ?>
                 </div>
