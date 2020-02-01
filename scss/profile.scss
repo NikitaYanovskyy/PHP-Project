@@ -1,10 +1,9 @@
 @import "./general styles/setup";
 @import "./general styles/media";
-
 ///////////////////////////////////////////////////////BIO
 .info-wrapper{
     display: flex;
-    padding: 2.5em 0 10em 0;
+    padding: 2.5em 0;
     a{
         display: block;
         padding: 7px;
@@ -19,24 +18,226 @@
         background-color: rgb(49, 108, 128); 
     }
 }
-.no-profile-image{
+
+.profile-image-wrapper{
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    min-width: 200px;
+    height: 200px;
+    input{
+        opacity: 0;
+        font-size: 0;
+    }
+    .profileLabel{
+        position: absolute;
+        z-index: 4;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+    }
+    h3{
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        transform: translate(0,-50%);
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        display: none;
+    }
+    .profileImageBlack{
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 99%;
+        height: 99%;
+        border-radius: 50%;
+        background-color: #0008;
+        display: none;
+    }
+
+}
+.profile-image{
     border-radius: 50%;
     width: 200px;
     height: 200px;
 }
-.no-profile-image, .no-blog-image{
-    background-color: rgb(49, 108, 128);
+.main-profile-image{
+    position: absolute;
 }
 .bio{
     margin-left: 2em;
+    width: 100%;
+}
+.status{
+    display: block;
+}
+.bio-input{
+    margin-top: 1em;
+    display: none;
+    width: 100%;
+    resize: none;
+    border: none;
+    border-left: 3px solid rgb(49, 108, 128);
+    height: 100px;
+    padding: 0 0.5em;
+    outline: none;
+}
+.bio-btn-wrapper{
+    display: flex;
+}
+.bio-back{
+    margin-right: 1em;
+}
+.bio-save{
+        padding: 7px;
+        text-align: center;
+        border-radius: 4px;
+        margin-top: 10px;
+        cursor: pointer;
+        width: 70px;
+        font-size: 1em;
+        border: none;
+        color: #fff;
+        background-color: rgb(49, 108, 128); 
+}
+.bio-back, .bio-save{
+    display: none !important;
 }
 
+
+///////////////////////////////////////////////////////Create Blog
+
+.create-blog{
+    margin: 4em 0 !important;
+    display: flex;
+    justify-content: space-between;
+    .blog-text{
+        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .blog-text-text{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    input[type=text],textarea{
+        outline: none;
+        border: none;
+        border-left: 4px solid rgb(49, 108, 128);
+        padding: 0 0.5em;
+    }
+    input[type=text]{
+        width: 100%;
+        color: #000;
+        font-size: 23px;
+        font-weight: bold;      
+        margin-bottom: 1em;
+        &::placeholder{
+            color: #000;
+        }
+    }
+    textarea{
+        display: block;       
+        font-size: 15px;
+        width: 100%;
+        height: 200px;
+        resize: none;
+    }
+    .blog-image-wrapper{
+        width: 300px;
+        margin-left: 2em;
+        position: relative;
+        &:hover{
+            h3{
+                opacity: 1;
+            }
+            &::before{
+                opacity: 1;
+            }
+        }
+        &::before{
+            transition: opacity 0.3s ease-in-out;
+            will-change: opacity;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background-color: #0005;
+        }
+        h3{
+            transition: opacity 0.3s ease-in-out;
+            will-change: opacity;
+            position: absolute;
+            color: #fff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            &::selection{
+                background: transparent;
+            }
+        }
+        .upload-image{
+            width: 300px;
+            min-height: 300px;
+            height: 100%;
+            object-fit: cover;
+        }
+        input[type=file]{
+            opacity: 0;
+            font-size: 0;
+        }
+        label[for=createImage]{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            cursor: pointer;
+        }
+    }
+    input:first-of-type{
+        margin-right: 1em !important;
+    }
+    .post-delete, .post-view, .post-edit{
+        display: block;
+        padding: 7px;
+        text-align: center;
+        border-radius: 4px;
+        margin-top: 20px;
+        cursor: pointer;
+        width: 70px;
+        font-size: 1em;
+        border: none;
+        color: #fff;
+        background-color: rgb(212, 59, 13);
+    }
+    .post-delete{
+        background-color: rgb(212, 59, 13);
+    }
+    .post-view, .post-edit{
+        background-color: rgb(90, 187, 106);
+    }
+    .buttons-wrapper{
+        display: flex;
+    }
+}
 
 ///////////////////////////////////////////////////////BLOG
 
 .blog-item{
-    margin: 4em 0;
+    margin: 4em 0 !important;
     display: flex;
+    justify-content: space-between !important;
     .blog-text{
         display: flex;
         flex-direction: column;
@@ -51,7 +252,16 @@
         min-height: 300px;
         height: 100%;
     }
-    input[type=submit]{
+    img{
+        width: 300px;
+        min-height: 300px;
+        height: 100%;
+        object-fit: cover;
+    }
+    input:first-of-type{
+        margin-right: 1em !important;
+    }
+    .post-delete, .post-view, .post-edit{
         display: block;
         padding: 7px;
         text-align: center;
@@ -63,5 +273,14 @@
         border: none;
         color: #fff;
         background-color: rgb(212, 59, 13);
+    }
+    .post-delete{
+        background-color: rgb(212, 59, 13);
+    }
+    .post-view, .post-edit{
+        background-color: rgb(90, 187, 106);
+    }
+    .buttons-wrapper{
+        display: flex;
     }
 }

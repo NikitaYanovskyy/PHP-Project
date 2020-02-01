@@ -29,8 +29,11 @@
     box-shadow: 0px 0px 8px 0px rgb(170, 170, 170) !important;
 }
 .registration-wrapper, .login-wrapper{
-    h1{
+    .register-header{
         margin: 1em 0;
+    }
+    .login-header{
+        margin: 1em 0 0 0;
     }
 }
 .login-wrapper{
@@ -78,11 +81,50 @@
         color: rgb(133, 133, 133);
     }
     input[type=submit]{
+        grid-column: 1/2;
         cursor: pointer;
         width: 70px;
         font-size: 1em;
         border: none;
         color: #fff;
         background-color: rgb(49, 108, 128);
+    }
+}
+.login-error{
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    width: fit-content;
+    margin: 0.5em 0;
+    background-color: rgb(218, 61, 61);
+    padding: 0.6em;
+    color: #fff;
+    animation: login-error 2.5s; 
+}
+.login-error-space{
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    width: fit-content;
+    margin: 0.5em 0;
+    padding: 0.6em;
+    color: #fff;
+}
+@keyframes login-error{
+    0%{
+        opacity: 0;
+        visibility: hidden;
+    }
+    10%{
+        opacity: 1;
+        visibility: visible;
+    }
+    80%{
+        opacity: 1;
+        visibility: visible;
+    }
+    90%{
+        opacity: 0;
+        visibility: hidden;
     }
 }

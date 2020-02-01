@@ -1,0 +1,10 @@
+To:   j.h@gmal.com
+
+Subject:   Account verification
+
+Message:   Hello ttt! To finish your registration, click the following link: 
+
+Link:   account-verified.php?hash=d61e4bbd6393c9111e6526ea173a7c8b
+
+From:   PHP-project.com
+

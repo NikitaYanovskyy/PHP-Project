@@ -1,11 +1,11 @@
 @media screen and (max-width: 1024px){
    
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 900px){
     form{
         grid-template-columns: 1fr !important;
     }
-    .bloglist{
+    .bloglist-wrapper{
         h1{
             text-align: center;
         }
@@ -16,16 +16,44 @@
             width: 100% !important;
             margin-left: 0 !important;
             margin-top: 2em;
+            img{
+                width: 100% !important;  
+            }
         }
         .no-blog-image{
             width: 100% !important;
         }
         .blog-text{
-            text-align: center;
             width: 100% !important;
         }
-        input[type=submit]{
-            margin: 20px auto 20px auto !important;
+        input[type=submit], .post-view{
+            margin: 20px 0 20px 0 !important;
+        }
+    }
+    .create-blog{
+        flex-direction: column;
+        .blog-image-wrapper{
+            width: 100% !important;
+            margin-left: 0 !important;
+            margin-top: 2em;
+            img{
+                width: 100% !important;  
+            }
+        }
+        .no-blog-image{
+            width: 100% !important;
+        }
+        .blog-text{
+            width: 100% !important;
+        }
+        input[type=submit] .post-view{
+            margin: 20px 0 20px 0 !important;
+        }
+    }
+    .blog-posted{      
+        flex-direction: column;
+        small{
+            margin: 0.5em 0;
         }
     }
 }
